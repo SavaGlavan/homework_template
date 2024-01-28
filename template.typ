@@ -17,7 +17,11 @@
   numbering: "1",
 )
 set enum(full: true, numbering: (..n) => {
-	let format = if n.pos().len() > 2 {"i)"} else if n.pos().len() > 1 {"a."} else {"1."}
+  let a = n.pos().len()
+  while a > 3{
+    a -= 3
+  }
+	let format = if a > 2 {"i)"} else if a > 1 {"a."} else {"1."}
 	numbering(format, n.pos().last())
 })
 
